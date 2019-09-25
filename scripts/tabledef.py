@@ -20,7 +20,7 @@ def db_connect():
     Performs database connection using database settings from settings.py.
     Returns sqlalchemy engine instance
     """
-    return create_engine(SQLALCHEMY_DATABASE_URI, connect_args={'connect_timeout': 10})
+    return create_engine(SQLALCHEMY_DATABASE_URI, connect_args={'timeout': 20})
 
 
 class User(Base):
