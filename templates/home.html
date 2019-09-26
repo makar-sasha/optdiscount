@@ -2,7 +2,47 @@
 {% block body %}
 {% include "navbar.html" %}
 <section class="hero is-primary is-bold is-large">
-  <div class="hero-body"></div>
+  <div class="hero-body" style="padding-top: 20px">
+    <div style="float: right;">
+      <h2>Monthly service for $10.00</h2>
+      {% if not user.active %}
+      <form action="/charge" method="post">
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ user.key }}"
+          data-description="Discount Optimiser Monthly Charge" data-amount="1000" data-locale="auto">
+          </script>
+      </form>
+      {% endif %}
+      {% if user.active %}
+      <div><span>already done</span></div>
+      {% endif %}
+    </div>
+    <div>
+      {% if user.active %}
+      <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+          Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".csv">
+      </form>
+      {% endif %}
+      {% if not user.active %}
+      <div><span>Activate subscription with payment</span></div>
+      {% endif %}
+      <div class="image-section" style="display:none;">
+        <div>
+          <button type="button" class="upload-label" id="btn-predict">Optimize Discount</button>
+        </div>
+      </div>
+    </div>
+    <div class="loader" style="display:none;"></div>
+    <h1 id="result">
+      <span> </span>
+    </h1>
+    <div style="padding-top: 40px">
+      <span>format example:</span>      
+    </div>
+    <img src="../static/img/example.jpg" alt="">
+  </div>
 </section>
 {% endblock %}
 {% block scripts %}

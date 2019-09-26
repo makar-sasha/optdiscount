@@ -5,6 +5,7 @@ from flask import session
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
 import bcrypt
+import datetime
 
 
 @contextmanager
@@ -66,3 +67,6 @@ def credentials_valid(username, password):
 def username_taken(username):
     with session_scope() as s:
         return s.query(tabledef.User).filter(tabledef.User.username.in_([username])).first()
+
+def payment_token():
+    return str(datetime.date.today().year) + str(datetime.date.today().month)

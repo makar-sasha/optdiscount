@@ -7,7 +7,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 # Local
-SQLALCHEMY_DATABASE_URI = 'sqlite:///caccounts.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///accounts.db'
 
 # Heroku
 #SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
@@ -30,6 +30,7 @@ class User(Base):
     username = Column(String(30), unique=True)
     password = Column(String(512))
     email = Column(String(50))
+    payment = Column(String(6))
 
     def __repr__(self):
         return '<User %r>' % self.username
