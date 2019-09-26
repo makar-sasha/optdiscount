@@ -144,8 +144,24 @@ def upload():
         Y_test_pred = polymodel.predict(df.index.values.reshape(-1, 1))
         df['res2'] = Y_test_pred[:,0]
         df['res2'] = df.res2.astype(int)
+
+        maxd1 = df.iloc[0].name
+        maxp1 = df.iloc[0]["Profit"]
+        df.drop(df.index[list(range(int(len(df) * 0.2)))], inplace=True)
+        maxd2 = df.iloc[0].name
+        maxp2 = df.iloc[0]["Profit"]
+
+        maxd3 = df['res2'].idxmax()
+        maxp3 = df.loc[str(maxd3)]['Profit']
+
+        if maxd2 == maxd3:
+            dres = maxd1
+            pres = maxp1
+        else:
+            dres = maxd3
+            pres = maxp3
        
-        return "best discount is " + str(df['res2'].idxmax()) + " with planned profit " + str(df.loc[str(df['res2'].idxmax())]["Profit"])
+        return "best discount is " + str(dres) + " with planned profit " + str(pres)
     return None
 
 # ======== Main ============================================================== #
