@@ -6,3 +6,5 @@ requests
 flask-heroku
 gunicorn
 stripe
+pandas
+scikit-learn
