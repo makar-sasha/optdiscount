@@ -152,9 +152,9 @@ def upload():
         maxp2 = df.iloc[0]["res2"]
 
         maxd3 = df['res2'].idxmax()
-        maxp3 = df.loc[str(maxd3)]['res2']
+        maxp3 = df.loc[maxd3]['res2']
 
-        if maxd2 == maxd3:
+        if maxd2 == maxd3 and maxd3 < maxd1:
             dres = maxd1
             pres = maxp1
         else:
