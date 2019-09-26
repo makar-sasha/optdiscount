@@ -146,13 +146,13 @@ def upload():
         df['res2'] = df.res2.astype(int)
 
         maxd1 = df.iloc[0].name
-        maxp1 = df.iloc[0]["Profit"]
+        maxp1 = df.iloc[0]["res2"]
         df.drop(df.index[list(range(int(len(df) * 0.2)))], inplace=True)
         maxd2 = df.iloc[0].name
-        maxp2 = df.iloc[0]["Profit"]
+        maxp2 = df.iloc[0]["res2"]
 
         maxd3 = df['res2'].idxmax()
-        maxp3 = df.loc[str(maxd3)]['Profit']
+        maxp3 = df.loc[str(maxd3)]['res2']
 
         if maxd2 == maxd3:
             dres = maxd1
