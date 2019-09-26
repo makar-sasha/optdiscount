@@ -9,7 +9,6 @@ import sys
 import os
 import stripe
 import pandas as pd
-import numpy as np
 from werkzeug.utils import secure_filename
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import Ridge
