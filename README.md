@@ -9,3 +9,5 @@ Discount optimizer
 • Upload timeline csv data with discount | qty sold | profit
 
 • Get optimal discount!
+
+https://optdiscount.herokuapp.com
