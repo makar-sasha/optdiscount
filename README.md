@@ -10,4 +10,6 @@ Discount optimizer
 
 • Get optimal discount!
 
+upload folder contains example for testing. working product could be explored here:
+
 https://optdiscount.herokuapp.com
